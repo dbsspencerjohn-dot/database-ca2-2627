@@ -3,10 +3,11 @@
 - Report (format up to choice, can be .pdf)
 
 # Renames
-- Language -> BookLanguage (Languages table)
-- Status -> AvailStatus (AvailabilityStatuses table)
-- Status -> RentStatus (RentalStatuses table)
-- Name -> PublisherName (Publisher table)
-- Address -> PublisherAddress (Publisher table)
-- Password -> UserPassword (Credentials table)
-- Role -> EmployeeRole (Staff table)
+- Language &rarr; BookLanguage (Languages table)
+- Status &rarr; AvailStatus (AvailabilityStatuses table)
+- Status &rarr; RentStatus (RentalStatuses table)
+- Name &rarr; PublisherName (Publisher table)
+- Address &rarr; PublisherAddress (Publisher table)
+- Password &rarr; UserPassword (Credentials table)
+- Role &rarr; EmployeeRole (Staff table)
+- Description &rarr; BookDescription (Book table)
