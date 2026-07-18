@@ -106,7 +106,7 @@ CREATE TABLE Books (
     Genre TINYINT NOT NULL,
     -- AvailabilityStatus renamed from Availability due to reserved keyword
     AvailabilityStatus TINYINT NOT NULL,
-    CallNumber VARCHAR NOT NULL,
+    CallNumber VARCHAR(20) NOT NULL,
     CONSTRAINT fk_Books_Publisher FOREIGN KEY (Publisher) REFERENCES Publishers(ID),
     CONSTRAINT fk_Books_Language FOREIGN KEY (BookLanguage) REFERENCES Languages(ID),
     CONSTRAINT fk_Books_Genre FOREIGN KEY (Genre) REFERENCES BookGenres(ID),

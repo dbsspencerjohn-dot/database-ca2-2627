@@ -7,7 +7,8 @@ https://www.timeanddate.com/date/dateadd.html
 https://emn178.github.io/online-tools/sha256.html
 https://www.behindthename.com/  
 https://surnames.behindthename.com/
-
+https://orcascan.com/tools/code-39-generator  
+https://www.librarything.com/mds
 
 ## Genres-Books
 - Science
@@ -19,7 +20,7 @@ https://surnames.behindthename.com/
 - Children's books
 	- [The Little Prince](https://www.goodreads.com/en/book/show/157993.The_Little_Prince)
 	- [Le Petit Prince](https://www.goodreads.com/book/show/70720.Le_Petit_Prince)
-	- [The Lion, the Witch and the Wardrobe](https://www.goodreads.com/book/show/100915.The_Lion_the_Witch_and_the_Wardrobe)
+	- [The Lion, the Witch and the Wardrobe](https://www.goodreads.com/book/show/65645.The_Lion_the_Witch_and_the_Wardrobe)
 	- [Percy Jackson the Lightning Thief](https://www.goodreads.com/book/show/28187.The_Lightning_Thief)
 	- [Percy Jackson the Sea of Monsters](https://www.goodreads.com/book/show/28186.The_Sea_of_Monsters)
 - YA
