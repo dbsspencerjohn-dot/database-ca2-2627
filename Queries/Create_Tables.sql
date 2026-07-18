@@ -51,9 +51,9 @@ CREATE TABLE Authors(
     FirstName VARCHAR(25)  NOT NULL,
     LastName VARCHAR(25) NOT NULL,
     Bio XML,
-    Email VARCHAR(60) NOT NULL UNIQUE,
-    Phone VARCHAR(15) NOT NULL UNIQUE,
-    Website VARCHAR(100) UNIQUE
+    Email VARCHAR(60) NOT NULL,
+    Phone VARCHAR(15) NOT NULL,
+    Website VARCHAR(100)
 );
 
 CREATE TABLE Members(
