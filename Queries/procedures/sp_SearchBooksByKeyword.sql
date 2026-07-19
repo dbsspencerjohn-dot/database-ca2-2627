@@ -1,32 +1,41 @@
 CREATE OR ALTER PROCEDURE sp_SearchBooksByKeyword
 (
-    @Keyword VARCHAR(100),
-    @Language VARCHAR(30)
+    @Keyword VARCHAR(100)
 )
 AS
 BEGIN
     SET NOCOUNT ON;
 
     SELECT
-        B.BookBarcode,
-        B.Title,
-        P.PublisherName,
-        L.BookLanguage,
-        G.Genre,
-        S.AvailStatus
-    FROM Books B
-        INNER JOIN Publishers P
-            ON B.Publisher = P.ID
-        INNER JOIN Languages L
-            ON B.BookLanguage = L.ID
-        INNER JOIN BookGenres G
-            ON B.Genre = G.ID
-        INNER JOIN AvailabilityStatuses S
-            ON B.AvailabilityStatus = S.ID
+        b.BookBarcode,
+        b.Title,
+        p.PublisherName,
+        l.BookLanguage,
+        g.Genre,
+        s.AvailStatus,
+        b.PublicationDate,
+
+        b.BookDescription.value(
+            '(/bookdesc/blurb)[1]',
+            'VARCHAR(MAX)'
+        ) AS BookBlurb
+
+    FROM Books b
+    INNER JOIN Publishers p
+        ON b.Publisher = p.ID
+    INNER JOIN Languages l
+        ON b.BookLanguage = l.ID
+    INNER JOIN BookGenres g
+        ON b.Genre = g.ID
+    INNER JOIN AvailabilityStatuses s
+        ON b.AvailabilityStatus = s.ID
+
     WHERE
-        B.Title LIKE '%' + @Keyword + '%'
-        AND L.BookLanguage = @Language
-    ORDER BY
-        B.Title ASC;
+        b.Title LIKE '%' + @Keyword + '%'
+        OR
+        b.BookDescription.value(
+            '(/bookdesc/blurb)[1]',
+            'VARCHAR(MAX)'
+        ) LIKE '%' + @Keyword + '%';
 END;
 GO

@@ -10,8 +10,8 @@ BEGIN
         P.PublisherName,
         COUNT(B.BookBarcode) AS TotalBooks
     FROM Publishers P
-        INNER JOIN Books B
-            ON P.ID = B.Publisher
+    INNER JOIN Books B
+        ON P.ID = B.Publisher
     GROUP BY
         P.PublisherName
     HAVING
