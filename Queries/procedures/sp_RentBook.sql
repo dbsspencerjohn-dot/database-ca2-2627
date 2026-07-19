@@ -6,10 +6,10 @@
 -- @RentStatusText the rental status, 'On Hold' or 'On Time'
 
 CREATE OR ALTER PROCEDURE sp_RentBook
-    @RentedBook VARCHAR(40)
-    @RentedBy INT
-    @AuthorizedBy VARCHAR(9)
-    @RentalDays INT
+    @RentedBook VARCHAR(40),
+    @RentedBy INT,
+    @AuthorizedBy VARCHAR(9),
+    @RentalDays INT,
     @RentStatusText VARCHAR(10)
 AS
 BEGIN
