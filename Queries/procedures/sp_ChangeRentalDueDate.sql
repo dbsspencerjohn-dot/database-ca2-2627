@@ -9,9 +9,9 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
-    DECLARE @CurRentStatus
-    DECLARE @CurDueDate
-    DECLARE @NewDueDate
+    DECLARE @CurRentStatus INT
+    DECLARE @CurDueDate DATE
+    DECLARE @NewDueDate DATE
 
     SELECT @CurRentStatus = RentStatus, @CurDueDate = DueDate 
     FROM RentRecords 
