@@ -1089,7 +1089,7 @@ VALUES
 '2000-05-15', 'Hardcover',
 (SELECT ID from Languages where BookLanguage = 'English'), 
 (SELECT ID from BookGenres where Genre = 'Childrens lit.'), 
-(SELECT ID from AvailabilityStatuses where AvailStatus = 'Available'), 
+(SELECT ID from AvailabilityStatuses where AvailStatus = 'Rented'), 
 '843.912', '<bookdesc>
     <blurb>
         A pilot forced to land in the Sahara meets a little prince. The wise and enchanting stories the prince tells of his own planet with its three volcanoes and a haughty flower are unforgettable. A strange and wonderful parable for all ages, with super illustrations by the author.
@@ -2493,3 +2493,47 @@ VALUES
 (SELECT ID from MembershipTypes where MembershipType = 'Visitor'),
 '2026-05-22', 1)
 GO
+
+
+INSERT INTO RentRecords(RentedBy, RentedBook, DateOfRental, 
+                        DueDate, AuthorizedBy, RentStatus)
+VALUES
+((SELECT ID FROM Members WHERE FirstName = 'Lloyd' AND LastName = 'Desmond'),
+(SELECT BookBarcode FROM Books WHERE Title = 'Eragon'),
+(DATEADD(day, -43, CONVERT(DATE, GETDATE()))),
+(DATEADD(day, -36, CONVERT(DATE, GETDATE()))),
+(SELECT IDNumber FROM Staff WHERE FirstName = 'Emille' AND LastName = 'Seraphine'),
+(SELECT ID FROM RentalStatuses WHERE RentStatus = 'Returned')
+),
+
+((SELECT ID FROM Members WHERE FirstName = 'Diana' AND LastName = 'Florence'),
+(SELECT BookBarcode FROM Books WHERE Title = 'The Left Hand of Darkness'),
+(DATEADD(day, -41, CONVERT(DATE, GETDATE()))),
+(DATEADD(day, -34, CONVERT(DATE, GETDATE()))),
+(SELECT IDNumber FROM Staff WHERE FirstName = 'Jamil' AND LastName = 'Zaman'),
+(SELECT ID FROM RentalStatuses WHERE RentStatus = 'Returned')
+),
+
+((SELECT ID FROM Members WHERE FirstName = 'Aisha' AND LastName = 'Jenkins'),
+(SELECT BookBarcode FROM Books WHERE Title = 'The Origin of Species'),
+(DATEADD(day, -32, CONVERT(DATE, GETDATE()))),
+(DATEADD(day, -2, CONVERT(DATE, GETDATE()))),
+(SELECT IDNumber FROM Staff WHERE FirstName = 'Louise' AND LastName = 'Benoit'),
+(SELECT ID FROM RentalStatuses WHERE RentStatus = 'Returned')
+),
+
+((SELECT ID FROM Members WHERE FirstName = 'Lloyd' AND LastName = 'Desmond'),
+(SELECT BookBarcode FROM Books WHERE Title = 'Eldest'),
+(DATEADD(day, -30, CONVERT(DATE, GETDATE()))),
+(DATEADD(day, -23, CONVERT(DATE, GETDATE()))),
+(SELECT IDNumber FROM Staff WHERE FirstName = 'Jamil' AND LastName = 'Zaman'),
+(SELECT ID FROM RentalStatuses WHERE RentStatus = 'Returned')
+),
+
+((SELECT ID FROM Members WHERE FirstName = 'Filipa' AND LastName = 'Sveda'),
+(SELECT BookBarcode FROM Books WHERE Title = 'The Little Prince'),
+(DATEADD(day, -5, CONVERT(DATE, GETDATE()))),
+(DATEADD(day, +5, CONVERT(DATE, GETDATE()))),
+(SELECT IDNumber FROM Staff WHERE FirstName = 'Emille' AND LastName = 'Seraphine'),
+(SELECT ID FROM RentalStatuses WHERE RentStatus = 'On Time')
+)
