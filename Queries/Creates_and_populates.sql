@@ -197,7 +197,7 @@ INSERT INTO RentalStatuses (RentStatus, Fine)
 VALUES
 ('On Hold', ''),
 ('On Time', ''),
-('Overdue', '0.50 EUR/hour'),
+('Overdue', '0.50 EUR/day'),
 ('Returned', ''),
 ('Book Lost', '10 EUR')
 GO
