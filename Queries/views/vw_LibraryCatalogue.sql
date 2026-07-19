@@ -1,4 +1,4 @@
-CREATE VIEW vw_LibraryCatalogue
+CREATE OR ALTER VIEW vw_LibraryCatalogue
 AS
 SELECT
     b.BookBarcode,
@@ -10,9 +10,9 @@ SELECT
     b.PublicationDate,
 
     b.BookDescription.value(
-        '(/Description/Summary/text())[1]',
-        'VARCHAR(500)'
-    ) AS BookSummary
+        '(/bookdesc/blurb/text())[1]',
+        'VARCHAR(MAX)'
+    ) AS BookBlurb
 
 FROM Books b
 INNER JOIN Publishers p
